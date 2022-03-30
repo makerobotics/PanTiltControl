@@ -93,6 +93,7 @@ def handleGamepad():
     logger.info(res)
     pan = "0"
     tilt = "0"
+    active = True
     while 1:
         try:
             events = get_gamepad()
@@ -110,6 +111,11 @@ def handleGamepad():
                     GAMEPAD_FACTOR = 100
                 elif("BTN_SOUTH" in event.code):
                     GAMEPAD_FACTOR = 1000
+                elif(("BTN_EAST" in event.code) and (event.state == 1)):
+                    active = not(active)
+                    logger.debug("Active: "+str(active))
+                    res = myudp.sendUDP('4 6 '+str(int(active))) # set mode follow
+                    logger.debug(res)
                     
                 if(gamepad_actuated):    
                     logger.debug(event.code+": "+str(event.state))

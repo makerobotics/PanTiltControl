@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-from inputs import get_gamepad
+#from inputs import get_gamepad
+from inputs import devices
 import socket    #for sockets
 import time
 import logging
@@ -43,33 +44,35 @@ class control(Thread):
         pan = "0"
         tilt = "0"
         active = True
-        events = get_gamepad()
-        for event in events:
-            gamepad_actuated = False
-            if("ABS_Y" in event.code):
-                pan = str(int(event.state/GAMEPAD_FACTOR))
-                gamepad_actuated = True
-            elif("ABS_X" in event.code):
-                tilt = str(int(-event.state/GAMEPAD_FACTOR))
-                gamepad_actuated = True
-            elif("BTN_WEST" in event.code):
-                GAMEPAD_FACTOR = 10
-            elif("BTN_NORTH" in event.code):
-                GAMEPAD_FACTOR = 100
-            elif("BTN_SOUTH" in event.code):
-                GAMEPAD_FACTOR = 1000
-            elif(("BTN_EAST" in event.code) and (event.state == 1)):
-                active = not(active)
-                logger.debug("Active: "+str(active))
-                res = self.udp.sendUDP_managed('4 6 '+str(int(active))) # set mode follow
-                logger.debug(res)
-                
-            if(gamepad_actuated):    
-                logger.debug(event.code+": "+str(event.state))
-                res = self.udp.sendUDP_managed('4 1 '+pan+' '+tilt) # set mode follow
-                logger.debug(res)
-                res = self.udp.sendUDP_managed('5 4') # get position
-                print(res, end = '        \r')
+        #events = get_gamepad() # removed as blocking the thread
+        events = devices.gamepads[0]._do_iter()
+        if events is not None:
+            for event in events:
+                gamepad_actuated = False
+                if("ABS_Y" in event.code):
+                    pan = str(int(event.state/GAMEPAD_FACTOR))
+                    gamepad_actuated = True
+                elif("ABS_X" in event.code):
+                    tilt = str(int(-event.state/GAMEPAD_FACTOR))
+                    gamepad_actuated = True
+                elif("BTN_WEST" in event.code):
+                    GAMEPAD_FACTOR = 10
+                elif("BTN_NORTH" in event.code):
+                    GAMEPAD_FACTOR = 100
+                elif("BTN_SOUTH" in event.code):
+                    GAMEPAD_FACTOR = 1000
+                elif(("BTN_EAST" in event.code) and (event.state == 1)):
+                    active = not(active)
+                    logger.debug("Active: "+str(active))
+                    res = self.udp.sendUDP_managed('4 6 '+str(int(active))) # set mode follow
+                    logger.debug(res)
+                    
+                if(gamepad_actuated):    
+                    logger.debug(event.code+": "+str(event.state))
+                    res = self.udp.sendUDP_managed('4 1 '+pan+' '+tilt) # set mode follow
+                    logger.debug(res)
+                    res = self.udp.sendUDP_managed('5 4') # get position
+                    print(res, end = '        \r')
 
     def initTrace(self):
         if(self.TRACE == 1):

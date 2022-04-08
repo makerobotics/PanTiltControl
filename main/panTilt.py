@@ -16,7 +16,7 @@ import os.path
 import signal
 import base64
 import hashlib
-#import picamera
+import picamera
 import data
 
 try:
@@ -24,10 +24,12 @@ try:
 except ImportError:
     import io
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from io import BytesIO
 
-CAM = 0
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+CAM = 1
 
 define('port', type=int, default=8080)
 
@@ -87,7 +89,8 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
     def cameraLoop(self):
         """Sends camera images in an infinite loop."""
         if(CAM == 1):
-            sio = io.StringIO()
+            #sio = io.StringIO()
+            sio = BytesIO()
             self.camera.capture(sio, "jpeg", use_video_port=True)
             try:
                 self.write_message(base64.b64encode(sio.getvalue()))

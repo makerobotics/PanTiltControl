@@ -103,3 +103,878 @@
 2022-04-03 12:06:38,794 [INFO] Reset enable
 2022-04-03 12:06:38,800 [INFO] Set mode to STOP
 2022-04-03 12:06:38,805 [INFO] Spot micro terminated
+2022-04-07 16:54:31,359 [INFO] Starting web server
+2022-04-07 16:54:31,470 [WARNING] No gamepad connected.
+2022-04-07 16:54:57,549 [INFO] 200 GET / (192.168.2.146) 45.21ms
+2022-04-07 16:54:57,726 [INFO] 200 GET /static/gui.css (192.168.2.146) 90.45ms
+2022-04-07 16:54:57,749 [INFO] 200 GET /static/joy.js (192.168.2.146) 16.57ms
+2022-04-07 16:54:57,771 [INFO] 200 GET /static/panTilt.js (192.168.2.146) 14.62ms
+2022-04-07 16:54:58,049 [INFO] 101 GET /websocket (192.168.2.146) 9.68ms
+2022-04-07 16:54:58,053 [INFO] WebSocket opened
+2022-04-07 16:54:58,093 [WARNING] 404 GET /favicon.ico (192.168.2.146) 30.94ms
+2022-04-07 16:55:11,386 [INFO] 200 GET / (192.168.2.146) 31.56ms
+2022-04-07 16:55:11,483 [INFO] WebSocket closed
+2022-04-07 16:55:11,515 [INFO] 200 GET /static/panTilt.js (192.168.2.146) 22.23ms
+2022-04-07 16:55:11,529 [INFO] 200 GET /static/gui.css (192.168.2.146) 30.49ms
+2022-04-07 16:55:11,544 [INFO] 200 GET /static/joy.js (192.168.2.146) 40.38ms
+2022-04-07 16:55:11,653 [INFO] 101 GET /websocket (192.168.2.146) 9.31ms
+2022-04-07 16:55:11,657 [INFO] WebSocket opened
+2022-04-07 16:55:11,688 [WARNING] 404 GET /favicon.ico (192.168.2.146) 21.82ms
+2022-04-07 16:56:02,137 [INFO] User interrupt
+2022-04-07 16:56:02,156 [INFO] Closing serial
+2022-04-07 16:56:02,183 [INFO] Reset enable
+2022-04-07 16:56:02,285 [INFO] Set mode to STOP
+2022-04-07 16:56:02,299 [INFO] Spot micro terminated
+2022-04-07 17:04:32,867 [INFO] Starting web server
+2022-04-07 17:04:33,172 [WARNING] No gamepad connected.
+2022-04-07 17:04:39,253 [INFO] 304 GET / (192.168.2.146) 46.89ms
+2022-04-07 17:04:39,396 [INFO] 304 GET /static/gui.css (192.168.2.146) 78.68ms
+2022-04-07 17:04:39,418 [INFO] 304 GET /static/joy.js (192.168.2.146) 14.05ms
+2022-04-07 17:04:39,441 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 13.16ms
+2022-04-07 17:04:39,499 [INFO] 101 GET /websocket (192.168.2.146) 9.14ms
+2022-04-07 17:04:39,503 [INFO] WebSocket opened
+2022-04-07 17:04:39,507 [ERROR] Uncaught exception GET /websocket (192.168.2.146)
+HTTPServerRequest(protocol='http', host='cam:8080', method='GET', uri='/websocket', version='HTTP/1.1', remote_ip='192.168.2.146')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/websocket.py", line 954, in _accept_connection
+    open_result = handler.open(*handler.open_args, **handler.open_kwargs)
+  File "panTilt.py", line 64, in open
+    self.camera = picamera.PiCamera(resolution=(640, 480))
+NameError: name 'picamera' is not defined
+2022-04-07 17:05:02,991 [INFO] User interrupt
+2022-04-07 17:05:03,017 [INFO] Reset enable
+2022-04-07 17:05:03,060 [INFO] Closing serial
+2022-04-07 17:05:03,072 [INFO] Set mode to STOP
+2022-04-07 17:05:03,083 [INFO] Spot micro terminated
+2022-04-07 17:08:06,475 [INFO] Starting web server
+2022-04-07 17:08:06,576 [WARNING] No gamepad connected.
+2022-04-07 17:08:11,724 [INFO] 304 GET / (192.168.2.146) 40.57ms
+2022-04-07 17:08:11,867 [INFO] 304 GET /static/gui.css (192.168.2.146) 88.58ms
+2022-04-07 17:08:11,900 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 16.72ms
+2022-04-07 17:08:11,914 [INFO] 304 GET /static/joy.js (192.168.2.146) 24.31ms
+2022-04-07 17:08:11,990 [INFO] 101 GET /websocket (192.168.2.146) 8.95ms
+2022-04-07 17:08:11,993 [INFO] WebSocket opened
+2022-04-07 17:08:31,485 [INFO] User interrupt
+2022-04-07 17:08:31,534 [INFO] Reset enable
+2022-04-07 17:08:31,574 [INFO] Closing serial
+2022-04-07 17:08:31,655 [INFO] Set mode to STOP
+2022-04-07 17:08:31,672 [INFO] Spot micro terminated
+2022-04-07 17:12:28,978 [INFO] Starting web server
+2022-04-07 17:12:29,039 [WARNING] No gamepad connected.
+2022-04-07 17:12:35,176 [INFO] 304 GET / (192.168.2.146) 47.41ms
+2022-04-07 17:12:35,515 [INFO] 304 GET /static/gui.css (192.168.2.146) 94.65ms
+2022-04-07 17:12:35,527 [INFO] 304 GET /static/joy.js (192.168.2.146) 101.25ms
+2022-04-07 17:12:35,538 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 104.57ms
+2022-04-07 17:12:35,908 [INFO] 101 GET /websocket (192.168.2.146) 10.89ms
+2022-04-07 17:12:35,913 [INFO] WebSocket opened
+2022-04-07 17:12:58,237 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:12:59,235 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:00,236 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:01,235 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:02,235 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:03,201 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:04,233 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:05,233 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:06,236 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:07,234 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:08,234 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:09,237 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:10,232 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:11,232 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb4a8f470>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-07 17:13:12,011 [INFO] User interrupt
+2022-04-07 17:13:12,023 [INFO] Reset enable
+2022-04-07 17:13:12,054 [INFO] Closing serial
+2022-04-07 17:13:12,132 [INFO] Set mode to STOP
+2022-04-07 17:13:12,143 [INFO] Spot micro terminated
+2022-04-08 15:48:42,788 [INFO] Starting web server
+2022-04-08 15:48:43,792 [ERROR] UDP Timeout
+2022-04-08 15:48:44,799 [ERROR] UDP Timeout
+2022-04-08 15:48:44,803 [WARNING] No gamepad connected.
+2022-04-08 15:49:04,642 [INFO] 304 GET / (192.168.2.146) 48.29ms
+2022-04-08 15:49:05,009 [INFO] 304 GET /static/gui.css (192.168.2.146) 86.18ms
+2022-04-08 15:49:05,031 [INFO] 304 GET /static/joy.js (192.168.2.146) 15.57ms
+2022-04-08 15:49:05,129 [INFO] 200 GET /static/panTilt.js (192.168.2.146) 12.50ms
+2022-04-08 15:49:05,263 [INFO] 101 GET /websocket (192.168.2.146) 15.70ms
+2022-04-08 15:49:05,267 [INFO] WebSocket opened
+2022-04-08 15:49:05,581 [WARNING] 404 GET /favicon.ico (192.168.2.146) 326.97ms
+2022-04-08 15:49:07,014 [ERROR] UDP Timeout
+2022-04-08 15:49:08,028 [ERROR] UDP Timeout
+2022-04-08 15:49:09,040 [ERROR] UDP Timeout
+2022-04-08 15:49:10,052 [ERROR] UDP Timeout
+2022-04-08 15:49:11,069 [ERROR] UDP Timeout
+2022-04-08 15:49:12,080 [ERROR] UDP Timeout
+2022-04-08 15:49:13,092 [ERROR] UDP Timeout
+2022-04-08 15:49:14,105 [ERROR] UDP Timeout
+2022-04-08 15:49:15,109 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,124 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,133 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,141 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,149 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,157 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,165 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,173 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,181 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,189 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:15,515 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:16,015 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:16,513 [ERROR] Error Code : 5 Message  
+2022-04-08 15:49:16,984 [INFO] User interrupt
+2022-04-08 15:49:17,012 [INFO] Closing serial
+2022-04-08 15:49:17,038 [INFO] Reset enable
+2022-04-08 15:49:17,043 [ERROR] Error Code : 4 Message  
+2022-04-08 15:49:17,048 [INFO] Set mode to STOP
+2022-04-08 15:49:17,055 [ERROR] Error Code : 4 Message  
+2022-04-08 15:49:17,063 [INFO] Spot micro terminated
+2022-04-08 15:54:32,545 [DEBUG] Starting sensor thread
+2022-04-08 15:54:32,552 [DEBUG] Starting control thread
+2022-04-08 15:54:32,557 [INFO] Starting web server
+2022-04-08 15:54:33,569 [ERROR] UDP Timeout
+2022-04-08 15:54:34,576 [ERROR] UDP Timeout
+2022-04-08 15:54:34,580 [WARNING] No gamepad connected.
+2022-04-08 15:54:44,562 [INFO] 304 GET / (192.168.2.146) 45.03ms
+2022-04-08 15:54:45,211 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 79.68ms
+2022-04-08 15:54:45,382 [INFO] 101 GET /websocket (192.168.2.146) 12.73ms
+2022-04-08 15:54:45,387 [INFO] WebSocket opened
+2022-04-08 15:54:46,183 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:47,191 [ERROR] UDP Timeout
+2022-04-08 15:54:47,196 [DEBUG] Main received: error
+2022-04-08 15:54:47,204 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:48,210 [ERROR] UDP Timeout
+2022-04-08 15:54:48,213 [DEBUG] Main received: error
+2022-04-08 15:54:48,220 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:49,228 [ERROR] UDP Timeout
+2022-04-08 15:54:49,234 [DEBUG] Main received: error
+2022-04-08 15:54:49,243 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:50,249 [ERROR] UDP Timeout
+2022-04-08 15:54:50,259 [DEBUG] Main received: error
+2022-04-08 15:54:50,269 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:51,275 [ERROR] UDP Timeout
+2022-04-08 15:54:51,281 [DEBUG] Main received: error
+2022-04-08 15:54:51,291 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:52,297 [ERROR] UDP Timeout
+2022-04-08 15:54:52,302 [DEBUG] Main received: error
+2022-04-08 15:54:52,312 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:53,318 [ERROR] UDP Timeout
+2022-04-08 15:54:53,323 [DEBUG] Main received: error
+2022-04-08 15:54:53,333 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:54,338 [ERROR] UDP Timeout
+2022-04-08 15:54:54,341 [DEBUG] Main received: error
+2022-04-08 15:54:54,351 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:55,358 [ERROR] UDP Timeout
+2022-04-08 15:54:55,365 [DEBUG] Main received: error
+2022-04-08 15:54:55,377 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:56,382 [ERROR] UDP Timeout
+2022-04-08 15:54:56,385 [DEBUG] Main received: error
+2022-04-08 15:54:56,391 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:57,400 [ERROR] UDP Timeout
+2022-04-08 15:54:57,405 [DEBUG] Main received: error
+2022-04-08 15:54:57,414 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:58,420 [ERROR] UDP Timeout
+2022-04-08 15:54:58,424 [DEBUG] Main received: error
+2022-04-08 15:54:58,433 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:54:59,440 [ERROR] UDP Timeout
+2022-04-08 15:54:59,445 [DEBUG] Main received: error
+2022-04-08 15:54:59,454 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:00,462 [ERROR] UDP Timeout
+2022-04-08 15:55:00,472 [DEBUG] Main received: error
+2022-04-08 15:55:00,481 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:01,487 [ERROR] UDP Timeout
+2022-04-08 15:55:01,492 [DEBUG] Main received: error
+2022-04-08 15:55:01,504 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:02,511 [ERROR] UDP Timeout
+2022-04-08 15:55:02,517 [DEBUG] Main received: error
+2022-04-08 15:55:02,526 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:03,532 [ERROR] UDP Timeout
+2022-04-08 15:55:03,537 [DEBUG] Main received: error
+2022-04-08 15:55:03,546 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:04,552 [ERROR] UDP Timeout
+2022-04-08 15:55:04,556 [DEBUG] Main received: error
+2022-04-08 15:55:04,566 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:05,573 [ERROR] UDP Timeout
+2022-04-08 15:55:05,584 [DEBUG] Main received: error
+2022-04-08 15:55:05,594 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:06,600 [ERROR] UDP Timeout
+2022-04-08 15:55:06,605 [DEBUG] Main received: error
+2022-04-08 15:55:06,614 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:07,621 [ERROR] UDP Timeout
+2022-04-08 15:55:07,626 [DEBUG] Main received: error
+2022-04-08 15:55:07,633 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:08,641 [ERROR] UDP Timeout
+2022-04-08 15:55:08,646 [DEBUG] Main received: error
+2022-04-08 15:55:08,654 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:09,662 [ERROR] UDP Timeout
+2022-04-08 15:55:09,667 [DEBUG] Main received: error
+2022-04-08 15:55:09,676 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:10,683 [ERROR] UDP Timeout
+2022-04-08 15:55:10,694 [DEBUG] Main received: error
+2022-04-08 15:55:10,703 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:11,709 [ERROR] UDP Timeout
+2022-04-08 15:55:11,712 [DEBUG] Main received: error
+2022-04-08 15:55:11,720 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:12,727 [ERROR] UDP Timeout
+2022-04-08 15:55:12,730 [DEBUG] Main received: error
+2022-04-08 15:55:12,740 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:13,747 [ERROR] UDP Timeout
+2022-04-08 15:55:13,752 [DEBUG] Main received: error
+2022-04-08 15:55:13,762 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:14,768 [ERROR] UDP Timeout
+2022-04-08 15:55:14,773 [DEBUG] Main received: error
+2022-04-08 15:55:14,781 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:15,789 [ERROR] UDP Timeout
+2022-04-08 15:55:15,801 [DEBUG] Main received: error
+2022-04-08 15:55:15,810 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:16,817 [ERROR] UDP Timeout
+2022-04-08 15:55:16,821 [DEBUG] Main received: error
+2022-04-08 15:55:16,829 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:17,835 [ERROR] UDP Timeout
+2022-04-08 15:55:17,840 [DEBUG] Main received: error
+2022-04-08 15:55:17,848 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:18,854 [ERROR] UDP Timeout
+2022-04-08 15:55:18,859 [DEBUG] Main received: error
+2022-04-08 15:55:18,869 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:19,876 [ERROR] UDP Timeout
+2022-04-08 15:55:19,880 [DEBUG] Main received: error
+2022-04-08 15:55:19,890 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:20,896 [ERROR] UDP Timeout
+2022-04-08 15:55:20,906 [DEBUG] Main received: error
+2022-04-08 15:55:20,915 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:21,921 [ERROR] UDP Timeout
+2022-04-08 15:55:21,925 [DEBUG] Main received: error
+2022-04-08 15:55:21,936 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:22,942 [ERROR] UDP Timeout
+2022-04-08 15:55:22,947 [DEBUG] Main received: error
+2022-04-08 15:55:22,957 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:23,963 [ERROR] UDP Timeout
+2022-04-08 15:55:23,968 [DEBUG] Main received: error
+2022-04-08 15:55:23,977 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:24,983 [ERROR] UDP Timeout
+2022-04-08 15:55:24,987 [DEBUG] Main received: error
+2022-04-08 15:55:24,997 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:26,002 [ERROR] UDP Timeout
+2022-04-08 15:55:26,013 [DEBUG] Main received: error
+2022-04-08 15:55:26,023 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:27,028 [ERROR] UDP Timeout
+2022-04-08 15:55:27,033 [DEBUG] Main received: error
+2022-04-08 15:55:27,047 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:28,054 [ERROR] UDP Timeout
+2022-04-08 15:55:28,059 [DEBUG] Main received: error
+2022-04-08 15:55:28,070 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:29,076 [ERROR] UDP Timeout
+2022-04-08 15:55:29,081 [DEBUG] Main received: error
+2022-04-08 15:55:29,091 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:30,097 [ERROR] UDP Timeout
+2022-04-08 15:55:30,102 [DEBUG] Main received: error
+2022-04-08 15:55:30,114 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:31,121 [ERROR] UDP Timeout
+2022-04-08 15:55:31,131 [DEBUG] Main received: error
+2022-04-08 15:55:31,140 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:32,147 [ERROR] UDP Timeout
+2022-04-08 15:55:32,152 [DEBUG] Main received: error
+2022-04-08 15:55:32,161 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:33,167 [ERROR] UDP Timeout
+2022-04-08 15:55:33,172 [DEBUG] Main received: error
+2022-04-08 15:55:33,181 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:34,189 [ERROR] UDP Timeout
+2022-04-08 15:55:34,194 [DEBUG] Main received: error
+2022-04-08 15:55:34,203 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:35,209 [ERROR] UDP Timeout
+2022-04-08 15:55:35,214 [DEBUG] Main received: error
+2022-04-08 15:55:35,223 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:36,229 [ERROR] UDP Timeout
+2022-04-08 15:55:36,235 [DEBUG] Main received: error
+2022-04-08 15:55:36,244 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:37,249 [ERROR] UDP Timeout
+2022-04-08 15:55:37,254 [DEBUG] Main received: error
+2022-04-08 15:55:37,263 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:38,269 [ERROR] UDP Timeout
+2022-04-08 15:55:38,273 [DEBUG] Main received: error
+2022-04-08 15:55:38,283 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:39,289 [ERROR] UDP Timeout
+2022-04-08 15:55:39,293 [DEBUG] Main received: error
+2022-04-08 15:55:39,302 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,308 [ERROR] UDP Timeout
+2022-04-08 15:55:40,313 [DEBUG] Main received: error
+2022-04-08 15:55:40,320 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,818 [DEBUG] Main received: error
+2022-04-08 15:55:40,826 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,830 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,834 [DEBUG] Main received: error
+2022-04-08 15:55:40,841 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,846 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,850 [DEBUG] Main received: error
+2022-04-08 15:55:40,858 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,863 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,867 [DEBUG] Main received: error
+2022-04-08 15:55:40,874 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,878 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,882 [DEBUG] Main received: error
+2022-04-08 15:55:40,890 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,894 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,898 [DEBUG] Main received: error
+2022-04-08 15:55:40,906 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,911 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,915 [DEBUG] Main received: error
+2022-04-08 15:55:40,923 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,926 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,929 [DEBUG] Main received: error
+2022-04-08 15:55:40,934 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,938 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,941 [DEBUG] Main received: error
+2022-04-08 15:55:40,946 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,949 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,952 [DEBUG] Main received: error
+2022-04-08 15:55:40,957 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,961 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,964 [DEBUG] Main received: error
+2022-04-08 15:55:40,969 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,973 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,976 [DEBUG] Main received: error
+2022-04-08 15:55:40,980 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,984 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,986 [DEBUG] Main received: error
+2022-04-08 15:55:40,991 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:40,995 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:40,998 [DEBUG] Main received: error
+2022-04-08 15:55:41,003 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,006 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,009 [DEBUG] Main received: error
+2022-04-08 15:55:41,014 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,018 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,021 [DEBUG] Main received: error
+2022-04-08 15:55:41,026 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,029 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,032 [DEBUG] Main received: error
+2022-04-08 15:55:41,037 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,040 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,043 [DEBUG] Main received: error
+2022-04-08 15:55:41,048 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,051 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,054 [DEBUG] Main received: error
+2022-04-08 15:55:41,059 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,063 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,066 [DEBUG] Main received: error
+2022-04-08 15:55:41,071 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,074 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,077 [DEBUG] Main received: error
+2022-04-08 15:55:41,082 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,085 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,088 [DEBUG] Main received: error
+2022-04-08 15:55:41,093 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,097 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,100 [DEBUG] Main received: error
+2022-04-08 15:55:41,106 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,109 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,113 [DEBUG] Main received: error
+2022-04-08 15:55:41,118 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,121 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,124 [DEBUG] Main received: error
+2022-04-08 15:55:41,129 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,133 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,136 [DEBUG] Main received: error
+2022-04-08 15:55:41,140 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,144 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,147 [DEBUG] Main received: error
+2022-04-08 15:55:41,152 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,155 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,158 [DEBUG] Main received: error
+2022-04-08 15:55:41,163 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,167 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,169 [DEBUG] Main received: error
+2022-04-08 15:55:41,177 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,180 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,184 [DEBUG] Main received: error
+2022-04-08 15:55:41,189 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,192 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,195 [DEBUG] Main received: error
+2022-04-08 15:55:41,200 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,203 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,206 [DEBUG] Main received: error
+2022-04-08 15:55:41,211 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,215 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,218 [DEBUG] Main received: error
+2022-04-08 15:55:41,223 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,232 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,236 [DEBUG] Main received: error
+2022-04-08 15:55:41,242 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,245 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,248 [DEBUG] Main received: error
+2022-04-08 15:55:41,253 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,256 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,259 [DEBUG] Main received: error
+2022-04-08 15:55:41,265 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,269 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,272 [DEBUG] Main received: error
+2022-04-08 15:55:41,278 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,281 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,284 [DEBUG] Main received: error
+2022-04-08 15:55:41,289 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,292 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,295 [DEBUG] Main received: error
+2022-04-08 15:55:41,300 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,303 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,306 [DEBUG] Main received: error
+2022-04-08 15:55:41,311 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,315 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,318 [DEBUG] Main received: error
+2022-04-08 15:55:41,323 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,326 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,329 [DEBUG] Main received: error
+2022-04-08 15:55:41,334 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,337 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,340 [DEBUG] Main received: error
+2022-04-08 15:55:41,345 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,348 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,351 [DEBUG] Main received: error
+2022-04-08 15:55:41,358 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,361 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,364 [DEBUG] Main received: error
+2022-04-08 15:55:41,370 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,373 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,377 [DEBUG] Main received: error
+2022-04-08 15:55:41,382 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,385 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,388 [DEBUG] Main received: error
+2022-04-08 15:55:41,394 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,397 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,400 [DEBUG] Main received: error
+2022-04-08 15:55:41,405 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,408 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,411 [DEBUG] Main received: error
+2022-04-08 15:55:41,416 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,420 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,423 [DEBUG] Main received: error
+2022-04-08 15:55:41,428 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,431 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,434 [DEBUG] Main received: error
+2022-04-08 15:55:41,439 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,443 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,446 [DEBUG] Main received: error
+2022-04-08 15:55:41,451 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,454 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,457 [DEBUG] Main received: error
+2022-04-08 15:55:41,463 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,466 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,469 [DEBUG] Main received: error
+2022-04-08 15:55:41,474 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,477 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,480 [DEBUG] Main received: error
+2022-04-08 15:55:41,485 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,488 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,491 [DEBUG] Main received: error
+2022-04-08 15:55:41,497 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,501 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,504 [DEBUG] Main received: error
+2022-04-08 15:55:41,510 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,513 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,516 [DEBUG] Main received: error
+2022-04-08 15:55:41,676 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:41,679 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:41,682 [DEBUG] Main received: error
+2022-04-08 15:55:42,192 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:42,196 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:42,199 [DEBUG] Main received: error
+2022-04-08 15:55:42,679 [DEBUG] Server WS msg received: 5 4
+2022-04-08 15:55:42,683 [ERROR] Error Code : 5 Message  
+2022-04-08 15:55:42,687 [DEBUG] Main received: error
+2022-04-08 15:55:42,781 [DEBUG] User interrupt (main)
+2022-04-08 15:55:42,785 [DEBUG] Main terminated with interrupt = True
+2022-04-08 15:55:42,788 [INFO] User interrupt
+2022-04-08 15:55:42,792 [DEBUG] Main loop finished (__main__
+2022-04-08 15:55:42,823 [INFO] Closing serial
+2022-04-08 15:55:42,827 [INFO] Reset enable
+2022-04-08 15:55:42,835 [ERROR] Error Code : 4 Message  
+2022-04-08 15:55:42,839 [INFO] Set mode to STOP
+2022-04-08 15:55:42,843 [ERROR] Error Code : 4 Message  
+2022-04-08 15:55:42,848 [INFO] Spot micro terminated
+2022-04-08 15:56:46,388 [DEBUG] Starting sensor thread
+2022-04-08 15:56:46,395 [DEBUG] Starting control thread
+2022-04-08 15:56:46,401 [INFO] Starting web server
+2022-04-08 15:56:47,419 [ERROR] UDP Timeout
+2022-04-08 15:56:48,426 [ERROR] UDP Timeout
+2022-04-08 15:56:48,430 [WARNING] No gamepad connected.
+2022-04-08 15:57:12,936 [INFO] 304 GET / (192.168.2.146) 47.06ms
+2022-04-08 15:57:13,590 [INFO] 200 GET /static/panTilt.js (192.168.2.146) 82.43ms
+2022-04-08 15:57:14,702 [INFO] 101 GET /websocket (192.168.2.146) 13.05ms
+2022-04-08 15:57:14,708 [INFO] WebSocket opened
+2022-04-08 15:57:25,664 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 15:57:26,671 [ERROR] UDP Timeout
+2022-04-08 15:57:26,675 [DEBUG] Main received: error
+2022-04-08 15:57:26,685 [DEBUG] Server WS msg received: video;on
+2022-04-08 15:57:27,835 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb5ea9fd0>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-08 15:57:28,836 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb5ea9fd0>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-08 15:57:29,831 [ERROR] Exception in callback <bound method MyWebSocket.cameraLoop of <__main__.MyWebSocket object at 0xb5ea9fd0>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/tornado/ioloop.py", line 905, in _run
+    return self.callback()
+  File "panTilt.py", line 91, in cameraLoop
+    self.camera.capture(sio, "jpeg", use_video_port=True)
+  File "/usr/lib/python3/dist-packages/picamera/camera.py", line 1421, in capture
+    if not encoder.wait(self.CAPTURE_TIMEOUT):
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 398, in wait
+    raise self.exception
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 267, in _callback
+    stop = self._callback_write(buf)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 1019, in _callback_write
+    super(PiOneImageEncoder, self)._callback_write(buf, key)
+  File "/usr/lib/python3/dist-packages/picamera/encoders.py", line 298, in _callback_write
+    written = output.write(buf.data)
+TypeError: string argument expected, got 'bytes'
+2022-04-08 15:57:30,447 [DEBUG] User interrupt (main)
+2022-04-08 15:57:30,454 [DEBUG] Main terminated with interrupt = True
+2022-04-08 15:57:30,461 [INFO] User interrupt
+2022-04-08 15:57:30,467 [DEBUG] Main loop finished (__main__
+2022-04-08 15:57:30,510 [INFO] Reset enable
+2022-04-08 15:57:30,552 [INFO] Closing serial
+2022-04-08 15:57:31,517 [ERROR] UDP Timeout
+2022-04-08 15:57:31,521 [INFO] Set mode to STOP
+2022-04-08 15:57:32,528 [ERROR] UDP Timeout
+2022-04-08 16:19:24,360 [DEBUG] Starting sensor thread
+2022-04-08 16:19:24,367 [DEBUG] Starting control thread
+2022-04-08 16:19:24,373 [INFO] Starting web server
+2022-04-08 16:19:25,389 [ERROR] UDP Timeout
+2022-04-08 16:19:26,396 [ERROR] UDP Timeout
+2022-04-08 16:19:26,400 [WARNING] No gamepad connected.
+2022-04-08 16:19:37,453 [INFO] 304 GET / (192.168.2.146) 38.54ms
+2022-04-08 16:19:37,811 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 78.33ms
+2022-04-08 16:19:37,961 [INFO] 101 GET /websocket (192.168.2.146) 10.22ms
+2022-04-08 16:19:37,965 [INFO] WebSocket opened
+2022-04-08 16:19:45,992 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 16:19:47,000 [ERROR] UDP Timeout
+2022-04-08 16:19:47,005 [DEBUG] Main received: error
+2022-04-08 16:19:47,015 [DEBUG] Server WS msg received: video;on
+2022-04-08 16:20:19,868 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 16:20:20,877 [ERROR] UDP Timeout
+2022-04-08 16:20:20,882 [DEBUG] Main received: error
+2022-04-08 16:20:21,149 [DEBUG] Server WS msg received: video;off
+2022-04-08 16:20:23,419 [DEBUG] User interrupt (main)
+2022-04-08 16:20:23,424 [DEBUG] Main terminated with interrupt = True
+2022-04-08 16:20:23,433 [INFO] User interrupt
+2022-04-08 16:20:23,440 [DEBUG] Main loop finished (__main__
+2022-04-08 16:20:23,466 [INFO] Reset enable
+2022-04-08 16:20:23,504 [INFO] Closing serial
+2022-04-08 16:20:24,473 [ERROR] UDP Timeout
+2022-04-08 16:20:24,476 [INFO] Set mode to STOP
+2022-04-08 16:20:25,480 [ERROR] UDP Timeout
+2022-04-08 16:20:25,494 [INFO] Spot micro terminated
+2022-04-08 16:25:41,993 [DEBUG] Starting sensor thread
+2022-04-08 16:25:42,006 [DEBUG] Starting control thread
+2022-04-08 16:25:42,012 [INFO] Starting web server
+2022-04-08 16:25:43,029 [ERROR] UDP Timeout
+2022-04-08 16:25:44,036 [ERROR] UDP Timeout
+2022-04-08 16:25:44,040 [WARNING] No gamepad connected.
+2022-04-08 16:25:44,500 [INFO] 304 GET / (192.168.2.146) 43.06ms
+2022-04-08 16:25:44,645 [INFO] 200 GET /static/panTilt.js (192.168.2.146) 82.11ms
+2022-04-08 16:25:44,699 [INFO] 101 GET /websocket (192.168.2.146) 10.35ms
+2022-04-08 16:25:44,704 [INFO] WebSocket opened
+2022-04-08 16:25:58,423 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 16:25:59,431 [ERROR] UDP Timeout
+2022-04-08 16:25:59,435 [DEBUG] Main received: error
+2022-04-08 16:25:59,446 [DEBUG] Server WS msg received: video;on
+2022-04-08 16:28:55,930 [DEBUG] User interrupt (main)
+2022-04-08 16:28:55,934 [DEBUG] Main terminated with interrupt = True
+2022-04-08 16:28:55,937 [INFO] User interrupt
+2022-04-08 16:28:55,941 [DEBUG] Main loop finished (__main__
+2022-04-08 16:28:55,969 [INFO] Reset enable
+2022-04-08 16:28:55,985 [INFO] Closing serial
+2022-04-08 16:28:56,975 [ERROR] UDP Timeout
+2022-04-08 16:28:56,979 [INFO] Set mode to STOP
+2022-04-08 16:28:57,987 [ERROR] UDP Timeout
+2022-04-08 16:28:57,993 [INFO] Spot micro terminated
+2022-04-08 16:33:21,900 [DEBUG] Starting sensor thread
+2022-04-08 16:33:21,907 [DEBUG] Starting control thread
+2022-04-08 16:33:21,913 [INFO] Starting web server
+2022-04-08 16:33:22,929 [ERROR] UDP Timeout
+2022-04-08 16:33:23,936 [ERROR] UDP Timeout
+2022-04-08 16:33:23,940 [WARNING] No gamepad connected.
+2022-04-08 16:33:25,687 [INFO] 200 GET / (192.168.2.146) 47.72ms
+2022-04-08 16:33:25,822 [INFO] 304 GET /static/panTilt.js (192.168.2.146) 77.12ms
+2022-04-08 16:33:25,896 [INFO] 101 GET /websocket (192.168.2.146) 10.40ms
+2022-04-08 16:33:25,901 [INFO] WebSocket opened
+2022-04-08 16:33:35,439 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 16:33:36,446 [ERROR] UDP Timeout
+2022-04-08 16:33:36,451 [DEBUG] Main received: error
+2022-04-08 16:33:36,461 [DEBUG] Server WS msg received: video;on
+2022-04-08 16:36:37,417 [DEBUG] Server WS msg received: 4 1 -8 -8
+2022-04-08 16:36:38,425 [ERROR] UDP Timeout
+2022-04-08 16:36:38,428 [DEBUG] Main received: error
+2022-04-08 16:36:38,441 [DEBUG] Server WS msg received: 4 1 14 42
+2022-04-08 16:36:39,449 [ERROR] UDP Timeout
+2022-04-08 16:36:39,455 [DEBUG] Main received: error
+2022-04-08 16:36:39,463 [DEBUG] Server WS msg received: 4 1 14 44
+2022-04-08 16:36:40,470 [ERROR] UDP Timeout
+2022-04-08 16:36:40,475 [DEBUG] Main received: error
+2022-04-08 16:36:40,485 [DEBUG] Server WS msg received: 4 1 12 24
+2022-04-08 16:36:41,492 [ERROR] UDP Timeout
+2022-04-08 16:36:41,497 [DEBUG] Main received: error
+2022-04-08 16:36:41,507 [DEBUG] Server WS msg received: 4 1 18 -8
+2022-04-08 16:36:42,515 [ERROR] UDP Timeout
+2022-04-08 16:36:42,525 [DEBUG] Main received: error
+2022-04-08 16:37:00,754 [DEBUG] Server WS msg received: 4 1 0 0
+2022-04-08 16:37:01,760 [ERROR] UDP Timeout
+2022-04-08 16:37:01,765 [DEBUG] Main received: error
+2022-04-08 16:38:11,806 [DEBUG] User interrupt (main)
+2022-04-08 16:38:11,810 [DEBUG] Main terminated with interrupt = True
+2022-04-08 16:38:11,818 [INFO] User interrupt
+2022-04-08 16:38:11,824 [DEBUG] Main loop finished (__main__
+2022-04-08 16:38:11,865 [INFO] Reset enable
+2022-04-08 16:38:11,878 [INFO] Closing serial
+2022-04-08 16:38:12,871 [ERROR] UDP Timeout
+2022-04-08 16:38:12,876 [INFO] Set mode to STOP
+2022-04-08 16:38:13,884 [ERROR] UDP Timeout
+2022-04-08 16:38:13,890 [INFO] Spot micro terminated

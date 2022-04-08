@@ -15,6 +15,17 @@ function init() {
     WebSocketControl();
 };
 
+function handleVideoCheckboxClick(cb) {
+    if(cb.checked){
+        ws.send("video;on");
+        log('Tx: Video on');
+    }
+    else{
+        ws.send("video;off");
+        log('Tx: Video off');
+    }
+}
+
 function WebSocketControl() {
     if ("WebSocket" in window) {
 
@@ -25,7 +36,7 @@ function WebSocketControl() {
             document.getElementById("input").style.backgroundColor = "green";
             log('Connection opened');
             // Start timer to get positions
-            setInterval(getPositions, 500);
+            //setInterval(getPositions, 500);
         };
 
         ws.onmessage = function (evt) {
@@ -47,8 +58,8 @@ function WebSocketControl() {
             }
             else{
                 //document.getElementById('log').innerHTML += 'Rx: '+evt.data+'\n';
-                log('Rx: '+evt.data);
-                //document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
+                //log('Rx: '+evt.data);
+                document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
             }
         };
 

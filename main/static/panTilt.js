@@ -1,6 +1,7 @@
 let ws;
 let lastMove = Date.now();
 let speed = 1;
+let stop = 0;
 
 // Create JoyStick object into the DIV 'joy1Div'
 var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
@@ -36,7 +37,7 @@ function WebSocketControl() {
             document.getElementById("input").style.backgroundColor = "green";
             log('Connection opened');
             // Start timer to get positions
-            //setInterval(getPositions, 500);
+            setInterval(getPositions, 1000);
         };
 
         ws.onmessage = function (evt) {
@@ -59,7 +60,10 @@ function WebSocketControl() {
             else{
                 //document.getElementById('log').innerHTML += 'Rx: '+evt.data+'\n';
                 //log('Rx: '+evt.data);
-                document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
+                if(evt.data.length>20)
+                  document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
+                else
+                  log('Rx: '+evt.data);
             }
         };
 
@@ -109,4 +113,15 @@ function sendCommand(command, logit=true){
 
 function setSpeed(s){
     speed = s;
+}
+
+function toggleStop(){
+    if(stop==0){
+      sendCommand("4 6 0"); // turn off enable pin
+      stop = 1;
+    }
+    else{ 
+      sendCommand("4 6 1");
+      stop = 0;
+    }
 }

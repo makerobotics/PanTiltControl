@@ -5,7 +5,7 @@ let speed = 1;
 // Create JoyStick object into the DIV 'joy1Div'
 var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
     if((Date.now()-lastMove)>200){
-        sendCommand('4 1 '+(-stickData.y*speed) + ' ' + (-stickData.x*speed));
+        sendCommand('4 1 '+(-stickData.y*speed) + ' ' + (-stickData.x*speed), false);
         lastMove = Date.now();
     }
 });

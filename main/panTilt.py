@@ -27,7 +27,7 @@ except ImportError:
 from io import BytesIO
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 CAM = 1
 
@@ -64,7 +64,7 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
         logger.info("WebSocket opened")
         if(CAM == 1):
             self.camera = picamera.PiCamera(resolution=(640, 480))
-            self.camera.rotation = 180
+            #self.camera.rotation = 180
         self.gui_loop = PeriodicCallback(self.guiLoop, 500)
         self.gui_loop.start()
 

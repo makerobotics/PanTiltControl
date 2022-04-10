@@ -2,7 +2,7 @@
 
 import time
 import logging
-import sense, control
+import sense, control, Vision
 
 from tornado.options import options, define, parse_command_line
 from tornado.ioloop import PeriodicCallback
@@ -18,6 +18,7 @@ import base64
 import hashlib
 import picamera
 import data
+import cv2
 
 try:
     import cStringIO as io
@@ -52,7 +53,7 @@ class webServerHandler(tornado.web.RequestHandler):
 class MyWebSocket(tornado.websocket.WebSocketHandler):
     camera = None
     camera_loop = None
-    
+
     def check_origin(self, origin):
         return True
 
@@ -62,9 +63,10 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
         logger.info("WebSocket opened")
-        if(CAM == 1):
-            self.camera = picamera.PiCamera(resolution=(640, 480))
-            #self.camera.rotation = 180
+        #if(CAM == 1):
+        #    self.camera = picamera.PiCamera(resolution=(640, 480))
+
+        #self.camera.rotation = 180
         self.gui_loop = PeriodicCallback(self.guiLoop, 500)
         self.gui_loop.start()
 
@@ -81,12 +83,29 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
         elif(message=="video;off"):
             if(CAM == 1):
                 self.camera_loop.stop()
+        elif(message=="pic"):
+            v.capture()
+            v.prepareImage()
+            v.process()
         else:
             res = c.runCommand(message)
             logger.debug("Main received: "+res)
             self.write_message(res)
 
     def cameraLoop(self):
+        """Sends camera images in an infinite loop."""
+        #sio = io.BytesIO()
+        if v.processing == False and CAM == 1:
+            v.capture()
+            is_success, im_buf_arr = cv2.imencode(".jpg", v.image)
+            sio = io.BytesIO(im_buf_arr)
+            try:
+                self.write_message(base64.b64encode(sio.getvalue()))
+            except tornado.websocket.WebSocketClosedError:
+                self.camera_loop.stop()
+            v.imageProcessing()
+
+    def __cameraLoop(self):
         """Sends camera images in an infinite loop."""
         if(CAM == 1):
             #sio = io.StringIO()
@@ -141,6 +160,8 @@ if __name__ == '__main__':
     logger.debug("Starting control thread")
     c = control.control()
     c.start()
+    v = Vision.Vision()
+    v.start()
     while(1):
         logger.info("Starting web server")
         interrupted = main()
@@ -150,8 +171,10 @@ if __name__ == '__main__':
     logger.info("User interrupt")
     s.terminate()
     c.terminate()
+    v.terminate()
     logger.debug("Main loop finished (__main__)")
     # Wait for actual termination (if needed)
     c.join()
     s.join()
+    v.join()
     logger.info("Pan and tilt control terminated")

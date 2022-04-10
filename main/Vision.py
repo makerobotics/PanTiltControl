@@ -25,7 +25,7 @@ class Vision(Thread):
             #self.camera = picamera.PiCamera(resolution=(1280, 720), framerate=Fraction(1, 6), sensor_mode=3)
             self.camera = picamera.PiCamera(resolution=(640, 480))
             #self.camera = picamera.PiCamera(resolution=(640, 480), sensor_mode=3)
-            self.camera.rotation = 180
+            #self.camera.rotation = 180
             self.camera.start_preview()
             # Camera warm-up time
             time.sleep(2)
@@ -45,12 +45,12 @@ class Vision(Thread):
         self.image = None
         self.blurred = None
 
-    def terminate(self): 
+    def terminate(self):
         self._running = False
 
     def run(self):
         logger.debug('Vision thread running')
-        while self._running: 
+        while self._running:
             ### Wait for command (call of runCommand by rpibot.py)
             if(self.processing == True):
                 self.capture()
@@ -60,32 +60,32 @@ class Vision(Thread):
             #else:
             #    self.idleTask()
             time.sleep(0.05)
-        self.close() 
+        self.close()
         logger.debug('Vision thread terminating')
 
     def close(self):
         self.camera.close()
         self.camera = None
-        
+
     def capture(self):
         rawCapture = picamera.array.PiRGBArray(self.camera)
         self.camera.capture(rawCapture, format="bgr")
         self.image = rawCapture.array
-        
+
     def prepareImage(self, filename="blurred.jpg"):
         gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
         #gray = cv2.equalizeHist(gray)
         self.blurred = cv2.GaussianBlur(gray, (3, 3), 0)
         #self.saveImage(self.blurred, "blurred.jpg")
-                
+
     def edgeDetectionCanny(self, filename="canny.jpg"):
         output = cv2.Canny(self.blurred, 10, 200)
         self.saveImage(output, filename)
-        
-    def findContours(self, img):
+
+    def findCont(self, img):
         AREA_THRESHOLD = 200
         # Find contours
-        contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        image, contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # Draw contours
         drawing = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
         for i in range(len(contours)):
@@ -102,14 +102,14 @@ class Vision(Thread):
     def edgeDetectionSobel(self, filename="sobel.jpg"):
         # main treatment
         #sobelx = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5)  # x
-        output = cv2.Sobel(self.blurred,cv2.CV_64F,0,1,ksize=5)  # y        
+        output = cv2.Sobel(self.blurred,cv2.CV_64F,0,1,ksize=5)  # y
         # result output
         self.saveImage(output, filename)
 
     def snapshot(self):
         self.camera.capture('foo.jpg')
         # raspistill -ss 6000000 -t 3000 -ex night -ISO 800 -o still.jpg
-        
+
     def process(self, filename="test.jpg"):
         # Apply adaptiveThreshold at the bitwise_not of gray, notice the ~ symbol
         gray = cv2.bitwise_not(self.blurred)
@@ -127,7 +127,7 @@ class Vision(Thread):
         # Apply morphology operations
         horizontal = cv2.erode(horizontal, horizontalStructure)
         horizontal = cv2.dilate(horizontal, horizontalStructure)
-        
+
         # [vert]
         # Specify size on vertical axis
         rows = vertical.shape[0]
@@ -137,18 +137,18 @@ class Vision(Thread):
         # Apply morphology operations
         vertical = cv2.erode(vertical, verticalStructure)
         vertical = cv2.dilate(vertical, verticalStructure)
-        
+
         # result output
         #self.saveImage(horizontal, "horizontal.jpg")
         #self.saveImage(vertical, "vertical.jpg")
-        
+
         or_horiz_vert = cv2.bitwise_or(horizontal, vertical)
         #self.saveImage(or_horiz_vert, "mix.jpg")
-        self.findContours(or_horiz_vert)
+        self.findCont(or_horiz_vert)
 
     def saveImage(self, output, filename):
         cv2.imwrite(filename, output)
-        
+
     def imageProcessing(self):
         self.processing = True
 
@@ -183,6 +183,6 @@ if __name__ == '__main__':
         v.terminate()
         logger.debug("Thread terminated")
 
-        # Wait for actual termination (if needed)  
+        # Wait for actual termination (if needed)
         v.join()
         logger.debug("Thread finished")

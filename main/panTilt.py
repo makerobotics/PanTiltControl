@@ -100,7 +100,7 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
         if v.processing == False and CAM == 1:
             v.imageProcessing()
             #v.capture()
-            while(v.image == None):
+            while(v.image is None):
                 time.sleep(0.1)
             is_success, im_buf_arr = cv2.imencode(".jpg", v.image)
             sio = io.BytesIO(im_buf_arr)

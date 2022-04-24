@@ -54,7 +54,7 @@ class Vision(Thread):
             ### Wait for command (call of runCommand by rpibot.py)
             if(self.processing == True):
                 self.capture()
-                self.prepareImage()
+                #self.prepareImage()
                 self.process()
                 self.processing = False
             #else:
@@ -110,7 +110,50 @@ class Vision(Thread):
         self.camera.capture('foo.jpg')
         # raspistill -ss 6000000 -t 3000 -ex night -ISO 800 -o still.jpg
 
-    def process(self, filename="test.jpg"):
+    def process(self, algo=1):
+        if(algo == 1):
+            self.prepareImage()
+            self.algo_1()
+        elif(algo == 2):
+            self.algo_2()
+
+    def algo_1(self, filename="test.jpg"):
+        # Apply adaptiveThreshold at the bitwise_not of gray, notice the ~ symbol
+        gray = cv2.bitwise_not(self.blurred)
+        bw = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 15, -2)
+        #self.saveImage(bw, "bw.jpg")
+        # Create the images that will use to extract the horizontal and vertical lines
+        horizontal = np.copy(bw)
+        vertical = np.copy(bw)
+        # [horiz]
+        # Specify size on horizontal axis
+        cols = horizontal.shape[1]
+        horizontal_size = cols // 30
+        # Create structure element for extracting horizontal lines through morphology operations
+        horizontalStructure = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontal_size, 1))
+        # Apply morphology operations
+        horizontal = cv2.erode(horizontal, horizontalStructure)
+        horizontal = cv2.dilate(horizontal, horizontalStructure)
+
+        # [vert]
+        # Specify size on vertical axis
+        rows = vertical.shape[0]
+        verticalsize = rows // 30
+        # Create structure element for extracting vertical lines through morphology operations
+        verticalStructure = cv2.getStructuringElement(cv2.MORPH_RECT, (1, verticalsize))
+        # Apply morphology operations
+        vertical = cv2.erode(vertical, verticalStructure)
+        vertical = cv2.dilate(vertical, verticalStructure)
+
+        # result output
+        #self.saveImage(horizontal, "horizontal.jpg")
+        #self.saveImage(vertical, "vertical.jpg")
+
+        or_horiz_vert = cv2.bitwise_or(horizontal, vertical)
+        #self.saveImage(or_horiz_vert, "mix.jpg")
+        self.findCont(or_horiz_vert)
+
+    def algo_2(self, filename="test.jpg"):
         # Apply adaptiveThreshold at the bitwise_not of gray, notice the ~ symbol
         gray = cv2.bitwise_not(self.blurred)
         bw = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 15, -2)

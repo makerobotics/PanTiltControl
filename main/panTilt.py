@@ -87,6 +87,7 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
             v.capture()
             v.prepareImage()
             v.process()
+            v.saveImage(v.image, "processed.jpg")
             self.write_message("picture processed")
         else:
             res = c.runCommand(message)

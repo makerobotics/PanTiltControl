@@ -7,6 +7,7 @@ import logging
 import json
 
 logger = logging.getLogger(__name__)
+#logger.setLevel(logging.DEBUG)
 logger.setLevel(logging.WARNING)
 
 class udp():
@@ -39,12 +40,12 @@ class udp():
                     #Set the whole string
                     self.s.sendto(msg.encode(), (self.host, self.port))
                     self.s.settimeout(1)
-                    
+
                     # receive data from client (data, addr)
                     d = self.s.recvfrom(1024)
                     reply = d[0]
                     addr = d[1]
-                    
+
                     logger.info('Server reply : ' + reply.decode().strip())
                     res = reply.decode().strip()
                 except socket.timeout:

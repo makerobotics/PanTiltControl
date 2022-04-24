@@ -37,7 +37,7 @@ function WebSocketControl() {
             document.getElementById("input").style.backgroundColor = "green";
             log('Connection opened');
             // Start timer to get positions
-            setInterval(getPositions, 1000);
+//            setInterval(getPositions, 1000);
         };
 
         ws.onmessage = function (evt) {

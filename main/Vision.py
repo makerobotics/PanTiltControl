@@ -97,7 +97,7 @@ class Vision(Thread):
             if area > AREA_THRESHOLD:
                 color = (rng.randint(0,256), rng.randint(0,256), rng.randint(0,256))
                 cv2.drawContours(self.image, contours, i, color, 2, cv2.LINE_8, hierarchy, 0)
-        #self.saveImage(self.image, "contours.jpg")
+        self.saveImage(self.image, "contours.jpg")
 
     def edgeDetectionSobel(self, filename="sobel.jpg"):
         # main treatment

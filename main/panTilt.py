@@ -159,9 +159,9 @@ def main():
 # This is the main application to be called to run the whole robot
 if __name__ == '__main__':
 
-    logger.debug("Starting sensor thread")
-    s = sense.sense(None)
-    s.start()
+    #logger.debug("Starting sensor thread")
+    #s = sense.sense(None)
+    #s.start()
     logger.debug("Starting control thread")
     c = control.control()
     c.start()
@@ -174,12 +174,12 @@ if __name__ == '__main__':
             break
     # Signal termination
     logger.info("User interrupt")
-    s.terminate()
+    #s.terminate()
     c.terminate()
     v.terminate()
     logger.debug("Main loop finished (__main__)")
     # Wait for actual termination (if needed)
     c.join()
-    s.join()
+    #s.join()
     v.join()
     logger.info("Pan and tilt control terminated")

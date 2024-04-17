@@ -4,7 +4,8 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <EEPROM.h>
-#include "secret.h"
+
+#include "wifi_store.h"
 
 /*
 PROPERTIES
@@ -83,6 +84,8 @@ Steps per deg: 8127/360 = 22,575 /deg
 // DRIVER mode:
 #define MotorInterfaceType 1
 
+wifi_store ws;
+
 int stepCounter;
 int steps = 200;
 
@@ -124,22 +127,7 @@ void setup() {
   }
 
   // Begin WiFi
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
-  
-  // Connecting to WiFi...
-  Serial.print("Connecting to ");
-  Serial.print(WIFI_SSID);
-  // Loop continuously while WiFi is not connected
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(100);
-    Serial.print(".");
-  }
-  
-  // Connected to WiFi
-  Serial.println();
-  Serial.print("Connected! IP address: ");
-  Serial.println(WiFi.localIP());
+  ws.manage_credentials();
  
   // Begin listening to UDP port
   UDP.begin(UDP_PORT);
@@ -340,7 +328,7 @@ void receiveSerialFrame(){
     frame.length++;
     
     // look for the newline. That's the end of your sentence:
-    if (Serial.read() == '\r') {
+    if (Serial.read() == '\n') {
       frame.newCommand = 1;
       frame.length = 0;
     }

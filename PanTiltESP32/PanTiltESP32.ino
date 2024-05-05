@@ -3,6 +3,20 @@
 #include <string.h> // strlen
 #include <WiFi.h>
 #include <WiFiUdp.h>
+
+// sketch worked again after adding these includes...
+
+#include <WiFi.h>
+#include <WiFiAP.h>
+#include <WiFiClient.h>
+#include <WiFiGeneric.h>
+#include <WiFiMulti.h>
+#include <WiFiSTA.h>
+#include <WiFiScan.h>
+#include <WiFiServer.h>
+#include <WiFiType.h>
+#include <WiFiUdp.h>
+
 #include <EEPROM.h>
 
 #include "wifi_store.h"
@@ -27,10 +41,10 @@ Steps per deg: 8127/360 = 22,575 /deg
 #define INIT_MAX_SPEED    1500 // max
 #define INIT_ACCEL        600
 
-#define CMD_GOTO          1 // 1 33 44
-#define CMD_STOP          2 // 2
+#define CMD_GOTO          1 // 1 33 44 [move stepper to 33 and 44]
+#define CMD_STOP          2 // 2 [stop stepper]
 #define CMD_MODE          3
-#define CMD_SET           4 // 4 2 400 400
+#define CMD_SET           4 // 4 2 400 400 [set max speed to 400]
 #define CMD_GET           5 // 5 4
 #define CMD_EE_READ       6 // 6 0
 #define CMD_EE_WRITE      7 // 7 0 55
@@ -131,8 +145,7 @@ void setup() {
  
   // Begin listening to UDP port
   UDP.begin(UDP_PORT);
-  Serial.print("Listening on UDP port ");
-  Serial.println(UDP_PORT);
+  Serial.print("Listening on UDP port ");  Serial.println(UDP_PORT);
 
   // Enable pin configured and set to LOW  (not enabled)
   pinMode(enable, OUTPUT);
@@ -205,13 +218,13 @@ void receiveUDPFrame(){
   int i = 0;
   // If packet received...
   if (packetSize) {
-    Serial.print("UDP: Received packet! Size: ");
-    Serial.println(packetSize); 
+    Serial.print("UDP: Received packet! Size: "); Serial.println(packetSize);
+
     frame.length = UDP.read(frame.rawData, 255);
     if (frame.length > 0) frame.rawData[frame.length] = '\0';
     frame.newCommand = 1;
-    Serial.print("UDP: Packet received: ");
-    Serial.println(frame.rawData);
+
+    Serial.print("UDP: Packet received: "); Serial.println(frame.rawData);
 
     // Convert string raw frame to int array
     ptr = strtok(frame.rawData, delimiter);
@@ -313,6 +326,10 @@ void decodeCommand(){
         sendUDP(response);
       }
     }
+    else{
+      Serial.println("Unknown command.");
+      sendUDP("NOK");
+    }
   }
   // reset new command flag
   frame.newCommand = 0;
@@ -340,6 +357,6 @@ void sendUDP(char * buffer){
   UDP.beginPacket(UDP.remoteIP(), UDP.remotePort());
   UDP.write((uint8_t*)buffer, strlen(buffer));
   UDP.endPacket();
-  Serial.print("UDP: "); Serial.println(buffer);
+  Serial.print("UDP Tx: "); Serial.println(buffer);
 }
 

@@ -164,14 +164,32 @@ void setup() {
 }
 
 void loop() {
-  // Receive serial frame if available
-  receiveSerialFrame();
-  // Receive UDP frame if available
-  receiveUDPFrame();
-  // Decode command and set variables
-  decodeCommand();
-  // Handle command received before for motion
-  runCommand();
+  int init = 0;
+
+  if(millis() > 5000) init = 1;
+
+  if( !init ){
+    if (Serial.available() > 0) {
+      String command = Serial.readStringUntil('\n');
+      int delimiter_pos = command.indexOf(',');
+      String ssid = command.substring(0, delimiter_pos);
+      String password = command.substring(delimiter_pos + 1);
+      Serial.println(ssid);
+      Serial.println(password);
+      ws.write_credentials(ssid, password);
+      ws.connect();
+    }
+  }
+  else{
+    // Receive serial frame if available
+    receiveSerialFrame();
+    // Receive UDP frame if available
+    receiveUDPFrame();
+    // Decode command and set variables
+    decodeCommand();
+    // Handle command received before for motion
+    runCommand();
+  }
 }
 
 void runCommand(){

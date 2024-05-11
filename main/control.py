@@ -20,7 +20,7 @@ GAMEPAD = True
 GAMEPAD_FACTOR = 50
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 class control(Thread):
 

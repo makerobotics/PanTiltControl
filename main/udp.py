@@ -13,7 +13,7 @@ logger.setLevel(logging.WARNING)
 class udp():
 
     def __init__(self):
-        self.host = '192.168.2.165';
+        self.host = '192.168.2.110';
         self.port = 4210;
         self.busy = False
 

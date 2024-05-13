@@ -179,9 +179,9 @@ label {
   position: absolute;
   direction: rtl;
   width: 390px; /* Width of the outside container */
-  height: 200px;
+  height: 100px;
   left: 0px;
-  top: 220px;
+  top: 250px;
 }
 
 #tilt {

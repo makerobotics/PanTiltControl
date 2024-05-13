@@ -3,17 +3,10 @@ let lastMove = Date.now();
 let speed = 1;
 let stop = 0;
 
-// Create JoyStick object into the DIV 'joy1Div'
-var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
-    if((Date.now()-lastMove)>200){
-        sendCommand('4 1 '+(-stickData.y*speed) + ' ' + (-stickData.x*speed), false);
-        lastMove = Date.now();
-    }
-});
-
 function init() {
     console.log("Init");
     WebSocketControl();
+    document.getElementById("video").addEventListener("click", setPosition, false);
 };
 
 function handleVideoCheckboxClick(cb) {
@@ -46,13 +39,6 @@ function WebSocketControl() {
             if(evt.data.includes("{")){
                 try {
                     obj = JSON.parse(evt.data);
-                    /*document.getElementById('dist').value = obj.distance;
-                    document.getElementById('speedleft').value = obj.speedL;
-                    document.getElementById('posleft').value = obj.encoderL;
-                    document.getElementById('speedright').value = obj.speedR;
-                    document.getElementById('posright').value = obj.encoderR;
-                    document.getElementById('yaw').value = obj.yaw;
-                    document.getElementById('odo').value = obj.odoDistance;*/
                 } catch (e) {
                     console.error("Syntax error in Json string");
                 }
@@ -93,6 +79,21 @@ function clearLog() {
 
 function getPositions(){
     sendCommand("5 4", false);
+}
+
+function setPosition(e){
+    let horrizontal;
+    let vertical;
+    let h_factor;
+    let v_factor;
+
+    //console.log(e.offsetX, e.offsetY, e.target.clientWidth, e.target.clientHeight);
+    horrizontal = e.offsetX-e.target.clientWidth/2;
+    vertical = -e.offsetY+e.target.clientHeight/2;
+    h_factor = document.getElementById("h_factor").value;
+    v_factor = document.getElementById("v_factor").value;
+    //log("x: "+horrizontal+", y: "+vertical);
+    sendCommand('4 1 '+(horrizontal*h_factor) + ' ' + (vertical*v_factor), true);
 }
 
 // used by manual command on GUI

@@ -30,11 +30,12 @@ function WebSocketControl() {
             document.getElementById("input").style.backgroundColor = "green";
             log('Connection opened');
             // Start timer to get positions
-//            setInterval(getPositions, 1000);
+            setInterval(getPositions, 2000);
         };
 
         ws.onmessage = function (evt) {
             var obj;
+            const re_position = /([%d]+)\s([%d]+)/;
             //console.log(evt.data);
             if(evt.data.includes("{")){
                 try {
@@ -48,8 +49,11 @@ function WebSocketControl() {
                 //log('Rx: '+evt.data);
                 if(evt.data.length>20)
                   document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
-                else
+                else{
+                  const match = evt.data.match(re_position);
+                  document.getElementById("position").value = `x: ${match[1]} / y: ${match[2]}.`;
                   log('Rx: '+evt.data);
+                }
             }
         };
 

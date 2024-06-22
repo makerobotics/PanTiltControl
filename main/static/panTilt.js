@@ -50,10 +50,15 @@ function WebSocketControl() {
                 if(evt.data.length>20)
                   document.getElementById("video").src = "data:image/jpeg;base64," + evt.data;
                 else{
-                  match = evt.data.match(re_position);
-                  console.log(match);
-                  document.getElementById("position").value = `x: ${match[1]} / y: ${match[2]}.`;
-                  log('Rx: '+evt.data);
+                    try {
+                        match = evt.data.match(re_position);
+                        document.getElementById("position").value = `x: ${match[1]} / y: ${match[2]}`;
+                    }
+                    catch(e) {
+                    }
+                    finally {
+                        log('Rx: '+evt.data);
+                    }
                 }
             }
         };

@@ -35,7 +35,7 @@ function WebSocketControl() {
 
         ws.onmessage = function (evt) {
             var obj;
-            const re_position = /([\d]+)\s([\d]+)/;
+            const re_position = /(-?[\d]+)\s(-?[\d]+)/;
             //console.log(evt.data);
             if(evt.data.includes("{")){
                 try {

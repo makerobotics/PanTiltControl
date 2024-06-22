@@ -129,9 +129,11 @@ class control(Thread):
     def run(self):
         global GAMEPAD_FACTOR
         logger.debug('Control thread running')
-        
-        logger.debug("set mode to follow")
-        res = self.udp.sendUDP_managed('4 5 4') # set mode follow
+
+        #logger.debug("set mode to follow")
+        #res = self.udp.sendUDP_managed('4 5 4') # set mode follow
+        logger.debug("set mode to relative position")
+        res = self.udp.sendUDP_managed('4 7 0')
         #logger.info(res)
         logger.debug("set enable pin")
         res = self.udp.sendUDP_managed('4 6 1') # set enable pin

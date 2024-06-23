@@ -70,8 +70,8 @@ function WebSocketControl() {
                     try {
                         match = evt.data.match(re_position);
                         document.getElementById("position").value = `x: ${match[1]} / y: ${match[2]}`;
-                        pos_x = match[1];
-                        pos_y = match[2];
+                        pos_x = Number(match[1]);
+                        pos_y = Number(match[2]);
                         if(pos_x==tgt_x && pos_y== tgt_y){
                             log("standstill")
                         }

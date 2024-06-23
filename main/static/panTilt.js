@@ -99,7 +99,7 @@ function setPosition(e){
 
     //console.log(e.offsetX, e.offsetY, e.target.clientWidth, e.target.clientHeight);
     horrizontal = e.offsetX-e.target.clientWidth/2;
-    vertical = -(e.offsetY+e.target.clientHeight/2);
+    vertical = -(e.offsetY-e.target.clientHeight/2);
     h_factor = document.getElementById("h_factor").value;
     v_factor = document.getElementById("v_factor").value;
     //log("x: "+horrizontal+", y: "+vertical);

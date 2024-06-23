@@ -2,6 +2,10 @@ let ws;
 let lastMove = Date.now();
 let speed = 1;
 let stop = 0;
+let pos_x = 0;
+let pos_y = 0;
+let tgt_x = 0;
+let tgt_y = 0;
 
 function init() {
     console.log("Init");
@@ -31,6 +35,11 @@ function WebSocketControl() {
             log('Connection opened');
             // Start timer to get positions
             setInterval(getPositions, 2000);
+            // Turn off stepper to avoid heating
+            sendCommand("4 6 0");
+            stop = 1;
+            // Set to relative position control
+            sendCommand("4 7 0");
         };
 
         ws.onmessage = function (evt) {
@@ -53,6 +62,11 @@ function WebSocketControl() {
                     try {
                         match = evt.data.match(re_position);
                         document.getElementById("position").value = `x: ${match[1]} / y: ${match[2]}`;
+                        pos_x = match[1];
+                        pos_y = match[2];
+                        if(pos_x==tgt_x && pos_y== tgt_y){
+                            log("standstill")
+                        }
                     }
                     catch(e) {
                     }
@@ -104,6 +118,8 @@ function setPosition(e){
     v_factor = document.getElementById("v_factor").value;
     //log("x: "+horrizontal+", y: "+vertical);
     sendCommand('1 '+(horrizontal*h_factor) + ' ' + (vertical*v_factor), true);
+    tgt_x = horrizontal*h_factor;
+    tgt_y = vertical*v_factor;
 }
 
 // used by manual command on GUI

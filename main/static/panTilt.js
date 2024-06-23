@@ -11,6 +11,13 @@ function init() {
     console.log("Init");
     WebSocketControl();
     document.getElementById("video").addEventListener("click", setPosition, false);
+    textInput = document.getElementById('input');
+    textInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        console.log('Enter key pressed!');
+        // Perform desired actions here
+      }
+    });
 };
 
 function handleVideoCheckboxClick(cb) {
@@ -118,8 +125,8 @@ function setPosition(e){
     v_factor = document.getElementById("v_factor").value;
     //log("x: "+horrizontal+", y: "+vertical);
     sendCommand('1 '+(horrizontal*h_factor) + ' ' + (-vertical*v_factor), true);
-    tgt_x = horrizontal*h_factor;
-    tgt_y = vertical*v_factor;
+    tgt_x = tgt_x + horrizontal*h_factor;
+    tgt_y = tgt_y + vertical*v_factor;
 }
 
 // used by manual command on GUI

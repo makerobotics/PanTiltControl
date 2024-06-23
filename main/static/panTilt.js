@@ -11,11 +11,12 @@ function init() {
     console.log("Init");
     WebSocketControl();
     document.getElementById("video").addEventListener("click", setPosition, false);
+    // handle enter pressed in input box
     textInput = document.getElementById('input');
     textInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        console.log('Enter key pressed!');
-        // Perform desired actions here
+        //console.log('Enter key pressed!');
+        sendMessage();
       }
     });
 };

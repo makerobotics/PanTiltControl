@@ -117,7 +117,7 @@ function setPosition(e){
     h_factor = document.getElementById("h_factor").value;
     v_factor = document.getElementById("v_factor").value;
     //log("x: "+horrizontal+", y: "+vertical);
-    sendCommand('1 '+(horrizontal*h_factor) + ' ' + (vertical*v_factor), true);
+    sendCommand('1 '+(horrizontal*h_factor) + ' ' + (-vertical*v_factor), true);
     tgt_x = horrizontal*h_factor;
     tgt_y = vertical*v_factor;
 }

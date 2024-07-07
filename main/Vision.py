@@ -70,7 +70,8 @@ class Vision(Thread):
 
     def parameter(self, par_array):
         print(par_array[1:7])
-        self.parameter = par_array[1:7]
+        for i in par_array:
+            self.parameter[i] = par_array[i]
 
     def capture(self):
         rawCapture = picamera.array.PiRGBArray(self.camera)

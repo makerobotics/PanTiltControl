@@ -20,6 +20,7 @@ class Vision(Thread):
         Thread.__init__(self)
         self._running = True
         self.processing = False
+        self.parameter = [150, 160, 60, 200, 255, 200]
 
         if cam is None:
             #self.camera = picamera.PiCamera(resolution=(1280, 720), framerate=Fraction(1, 6), sensor_mode=3)
@@ -68,7 +69,8 @@ class Vision(Thread):
         self.camera = None
 
     def parameter(self, par_array):
-        print(par_array[1:5])
+        print(par_array[1:7])
+        self.parameter = par_array[1:7]
 
     def capture(self):
         rawCapture = picamera.array.PiRGBArray(self.camera)
@@ -212,9 +214,11 @@ class Vision(Thread):
         # Convert to HSV
         hsv = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
 
-        # Define brown color range
-        lower_brown = np.array([150, 160, 60])
-        upper_brown = np.array([200, 255, 200])
+        # Define blue color range
+        #lower_brown = np.array([150, 160, 60])
+        #upper_brown = np.array([200, 255, 200])
+        lower_brown = np.array([self.parameter[0], self.parameter[1], self.parameter[2]])
+        upper_brown = np.array([self.parameter[3], self.parameter[4], self.parameter[5]])
 
         # Threshold the image
         mask = cv2.inRange(hsv, lower_brown, upper_brown)

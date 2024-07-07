@@ -83,6 +83,8 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
         elif(message=="video;off"):
             if(CAM == 1):
                 self.camera_loop.stop()
+        elif("par" in message):
+            v.parameter(message.split(";"))
         elif(message=="pic"):
             v.capture()
             #v.prepareImage()

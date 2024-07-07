@@ -67,6 +67,9 @@ class Vision(Thread):
         self.camera.close()
         self.camera = None
 
+    def parameter(self, par_array):
+        print(par_array[1:5])
+
     def capture(self):
         rawCapture = picamera.array.PiRGBArray(self.camera)
         self.camera.capture(rawCapture, format="bgr")

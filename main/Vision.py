@@ -110,12 +110,16 @@ class Vision(Thread):
         self.camera.capture('foo.jpg')
         # raspistill -ss 6000000 -t 3000 -ex night -ISO 800 -o still.jpg
 
-    def process(self, algo=1):
+    def process(self, algo=4):
         if(algo == 1):
             self.prepareImage()
             self.algo_1()
         elif(algo == 2):
             self.algo_2()
+        elif(algo == 3):
+            self.algo_3()
+        elif(algo == 4):
+            self.algo_4()
 
     def algo_1(self, filename="test.jpg"):
         # Apply adaptiveThreshold at the bitwise_not of gray, notice the ~ symbol
@@ -190,40 +194,56 @@ class Vision(Thread):
         self.findCont(or_horiz_vert)
 
     def algo_3(self, filename="test.jpg"):
-        # Apply adaptiveThreshold at the bitwise_not of gray, notice the ~ symbol
-        gray = cv2.bitwise_not(self.blurred)
-        bw = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 15, -2)
-        #self.saveImage(bw, "bw.jpg")
-        # Create the images that will use to extract the horizontal and vertical lines
-        horizontal = np.copy(bw)
-        vertical = np.copy(bw)
-        # [horiz]
-        # Specify size on horizontal axis
-        cols = horizontal.shape[1]
-        horizontal_size = cols // 30
-        # Create structure element for extracting horizontal lines through morphology operations
-        horizontalStructure = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontal_size, 1))
-        # Apply morphology operations
-        horizontal = cv2.erode(horizontal, horizontalStructure)
-        horizontal = cv2.dilate(horizontal, horizontalStructure)
+        # Object detection from Stable camera
+        object_detector = cv2.createBackgroundSubtractorMOG2()
+        while True:
+            ret, frame = cap.read()
+        
+            # 1. Object Detection
+            mask = object_detector.apply(frame)
+            _, mask = cv2.threshold(mask, 254, 255, cv2.THRESH_BINARY)
+            x, y, w, h = cv2.boundingRect(cnt)
+            cv2.rectangle(self.image, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
-        # [vert]
-        # Specify size on vertical axis
-        rows = vertical.shape[0]
-        verticalsize = rows // 30
-        # Create structure element for extracting vertical lines through morphology operations
-        verticalStructure = cv2.getStructuringElement(cv2.MORPH_RECT, (1, verticalsize))
-        # Apply morphology operations
-        vertical = cv2.erode(vertical, verticalStructure)
-        vertical = cv2.dilate(vertical, verticalStructure)
+    def algo_4(self, filename="test.jpg"):
+        # Convert to HSV
+        hsv = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
 
-        # result output
-        #self.saveImage(horizontal, "horizontal.jpg")
-        #self.saveImage(vertical, "vertical.jpg")
+        # Define brown color range
+        lower_brown = np.array([150, 160, 60])
+        upper_brown = np.array([200, 255, 200])
 
-        or_horiz_vert = cv2.bitwise_or(horizontal, vertical)
-        #self.saveImage(or_horiz_vert, "mix.jpg")
-        self.findCont(or_horiz_vert)
+        # Threshold the image
+        mask = cv2.inRange(hsv, lower_brown, upper_brown)
+        
+        # Find contours
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        index = 0
+        # Draw bounding boxes (optional)
+        for contour in contours:
+            x, y, w, h = cv2.boundingRect(contour)
+            surf = cv2.contourArea(contour)
+            peri = cv2.arcLength(contour, True)
+            #approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
+            if(surf > 10000):
+                index += 1
+                label = f"Contour {index}"
+                # Draw the bounding box
+                cv2.rectangle(self.image, (x, y), (x + w, y + h), (0, 0, 255), 2)
+                # Draw the contour on the image
+                cv2.drawContours(self.image, [contour], -1, (0, 255, 0), 2)  # Green color, thickness 2
+                #cv2.drawContours(roi, [approx], -1, (0, 255, 0), 2)  # Green color, thickness 2
+                # Draw the label near the contour
+                cv2.putText(self.image, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2)
+
+                # compute the center of the contour
+                M = cv2.moments(contour)
+                cX = int(M["m10"] / M["m00"])
+                cY = int(M["m01"] / M["m00"])
+                # draw the contour and center of the shape on the image
+                cv2.circle(self.image, (cX, cY), 7, (255, 255, 255), -1)
+                cv2.putText(self.image, f"center ({cX}, {cY})", (cX - 20, cY - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
     def saveImage(self, output, filename):
         cv2.imwrite(filename, output)

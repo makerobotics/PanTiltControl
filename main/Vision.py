@@ -217,8 +217,8 @@ class Vision(Thread):
         mask = cv2.inRange(hsv, lower_brown, upper_brown)
         
         # Find contours
-        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
+        _, contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        
         index = 0
         # Draw bounding boxes (optional)
         for contour in contours:
